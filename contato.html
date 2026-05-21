@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fale Conosco — Brique</title>
+  <meta name="description" content="Fale com a Brique. Tire suas dúvidas pelo email contato@briquebr.com.br ou telefone (21) 2274-4898.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" type="image/png" href="assets/logos/brique.png">
+</head>
+<body>
+
+  <div id="site-header"></div>
+
+  <main>
+
+    <!-- ============== S1 — BANNER CONTATO ============== -->
+    <section class="page-banner">
+      <div class="page-banner__inner">
+        <h1 class="page-banner__title">Fale <em>Conosco</em></h1>
+        <p class="page-banner__subtitle">
+          Estamos prontos para tirar suas dúvidas sobre investimentos em imóveis tokenizados.
+          Entre em contato pelos canais abaixo.
+        </p>
+
+        <div class="contact-cards">
+          <a class="contact-card" href="mailto:contato@briquebr.com.br">
+            <span class="contact-card__icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                <polyline points="22,6 12,13 2,6"/>
+              </svg>
+            </span>
+            <span>contato@briquebr.com.br</span>
+          </a>
+
+          <a class="contact-card" href="tel:+552122744898">
+            <span class="contact-card__icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+              </svg>
+            </span>
+            <span>(21) 2274-4898</span>
+          </a>
+        </div>
+
+        <div class="contact-form-section">
+          <h3>Ou nos envie uma mensagem</h3>
+          <p>Responderemos em até 1 dia útil.</p>
+
+          <form class="lead-form" id="contact-form" novalidate>
+            <label class="lead-form__field">
+              <span>Nome completo</span>
+              <input type="text" name="nome" required autocomplete="name">
+            </label>
+            <label class="lead-form__field">
+              <span>E-mail</span>
+              <input type="email" name="email" required autocomplete="email">
+            </label>
+            <label class="lead-form__field">
+              <span>WhatsApp</span>
+              <input type="tel" name="whatsapp" autocomplete="tel" placeholder="(00) 00000-0000">
+            </label>
+            <label class="lead-form__field">
+              <span>Mensagem</span>
+              <textarea name="message" rows="4" required></textarea>
+            </label>
+
+            <button type="submit" class="btn btn-primary lead-form__submit" data-no-modal>Enviar mensagem</button>
+            <p class="lead-form__msg" data-contact-msg></p>
+          </form>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <div id="site-footer"></div>
+
+  <script src="js/partials.js"></script>
+  <script src="js/main.js" defer></script>
+  <script type="module" src="js/lead-modal.js"></script>
+  <script type="module">
+    import { submitLead } from './js/supabase.js';
+    const form = document.getElementById('contact-form');
+    const msgEl = form.querySelector('[data-contact-msg]');
+    const btn = form.querySelector('[type="submit"]');
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const data = Object.fromEntries(new FormData(form).entries());
+      if (!data.nome || !data.email || !data.message) {
+        msgEl.textContent = 'Preencha nome, e-mail e mensagem.';
+        msgEl.className = 'lead-form__msg is-error';
+        return;
+      }
+      btn.disabled = true;
+      const originalLabel = btn.textContent;
+      btn.textContent = 'Enviando...';
+      msgEl.textContent = '';
+      msgEl.className = 'lead-form__msg';
+
+      try {
+        await submitLead({
+          nome: data.nome,
+          email: data.email,
+          whatsapp: data.whatsapp,
+          message: data.message,
+          source: 'contato',
+        });
+        msgEl.textContent = 'Mensagem enviada! Entraremos em contato em breve.';
+        msgEl.className = 'lead-form__msg is-success';
+        form.reset();
+      } catch (err) {
+        console.error(err);
+        msgEl.textContent = 'Não foi possível enviar agora. Tente novamente em instantes.';
+        msgEl.className = 'lead-form__msg is-error';
+      } finally {
+        btn.disabled = false;
+        btn.textContent = originalLabel;
+      }
+    });
+  </script>
+</body>
+</html>
