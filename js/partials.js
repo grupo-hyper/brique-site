@@ -16,6 +16,7 @@
           <span></span><span></span><span></span>
         </button>
         <nav class="site-nav" aria-label="Principal">
+          <a href="index.html" class="site-nav__link">Home</a>
           <a href="como-funciona.html" class="site-nav__link">Como Funciona</a>
           <a href="quem-somos.html" class="site-nav__link">Quem Somos</a>
           <a href="contato.html" class="site-nav__link">Fale Conosco</a>
