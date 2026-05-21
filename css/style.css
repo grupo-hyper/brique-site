@@ -313,17 +313,18 @@ ul, ol { list-style: none; }
 ============================================ */
 .imovel-card {
   display: flex;
-  gap: 40px;
+  gap: 0;
   background: #fff;
   border-radius: 16px;
   box-shadow: var(--shadow-card);
   overflow: hidden;
-  max-width: 860px;
+  max-width: 920px;
   margin: 0 auto;
 }
 .imovel-card__img {
-  flex: 0 0 400px;
-  min-height: 300px;
+  flex: 0 0 380px;
+  position: relative;
+  min-height: 320px;
   overflow: hidden;
 }
 .imovel-card__img img {
@@ -331,29 +332,58 @@ ul, ol { list-style: none; }
   height: 100%;
   object-fit: cover;
 }
+.imovel-card__badge {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  background: #22c55e;
+  color: #fff;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .06em;
+  padding: 4px 12px;
+  border-radius: 20px;
+}
 .imovel-card__body {
   flex: 1;
-  padding: 36px 36px 36px 0;
+  padding: 32px;
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: 20px;
+}
+.imovel-card__tipo {
+  display: inline-block;
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .08em;
+  color: var(--color-primary);
+  background: rgba(84,48,217,.08);
+  padding: 3px 10px;
+  border-radius: 20px;
 }
 .imovel-card__name {
-  font-size: 1.6rem;
+  font-size: 1.5rem;
   font-weight: 700;
   color: var(--color-dark);
+  margin-top: 6px;
 }
 .imovel-card__location {
   display: flex;
   align-items: center;
-  gap: 6px;
+  gap: 5px;
   color: var(--color-muted);
-  font-size: 0.95rem;
+  font-size: 0.88rem;
+  margin-top: 2px;
 }
 .imovel-card__stats {
-  display: flex;
-  gap: 24px;
-  margin-top: 4px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px 12px;
+  padding: 16px;
+  background: var(--color-bg-alt);
+  border-radius: 10px;
 }
 .imovel-card__stat {
   display: flex;
@@ -361,24 +391,32 @@ ul, ol { list-style: none; }
   gap: 2px;
 }
 .imovel-card__stat-label {
-  font-size: 0.75rem;
+  font-size: 0.7rem;
   text-transform: uppercase;
   letter-spacing: .05em;
   color: var(--color-muted);
 }
 .imovel-card__stat-value {
-  font-size: 1.05rem;
-  font-weight: 600;
+  font-size: 1rem;
+  font-weight: 700;
   color: var(--color-dark);
+}
+.imovel-card__desc {
+  font-size: 0.9rem;
+  color: var(--color-muted);
+  line-height: 1.6;
 }
 .imovel-card__cta {
   margin-top: auto;
   align-self: flex-start;
+  width: 100%;
+  text-align: center;
 }
-@media (max-width: 700px) {
+@media (max-width: 760px) {
   .imovel-card { flex-direction: column; }
-  .imovel-card__img { flex: 0 0 220px; }
-  .imovel-card__body { padding: 24px; }
+  .imovel-card__img { flex: 0 0 240px; min-height: 240px; }
+  .imovel-card__body { padding: 20px; }
+  .imovel-card__stats { grid-template-columns: repeat(2, 1fr); }
 }
 
 /* ============================================
