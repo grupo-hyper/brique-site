@@ -31,38 +31,41 @@
           e qual o tamanho de sua fatia! O imóvel será administrado pela <strong>Brique</strong>, que conta com
           profissionais que conhecem o mercado imobiliário há mais de 30 anos!
         </p>
-        <a href="#cadastro" class="btn btn-primary">Cadastre-se Agora</a>
+        <a href="https://app.briquebr.com.br/auth/signUp" class="btn btn-primary">Cadastre-se Agora</a>
       </div>
     </section>
 
-    <!-- ============== S2 — CARROSSEL IMÓVEIS ============== -->
+    <!-- ============== S2 — IMÓVEL DISPONÍVEL ============== -->
     <section class="section-carrossel">
       <div class="container-wide">
-        <h2 class="section-carrossel__title">Esses imóveis podem ser seus hoje:</h2>
+        <h2 class="section-carrossel__title">Esse imóvel pode ser seu hoje:</h2>
 
-        <div class="carrossel">
-          <button class="carrossel__btn carrossel__btn--prev" aria-label="Anterior" data-carrossel-prev>
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"></polyline></svg>
-          </button>
-
-          <div class="carrossel__viewport" data-carrossel-viewport>
-            <div class="carrossel__track">
-              <article class="carrossel__item"><img src="assets/images/imovel-1.png" alt="Imóvel 1"></article>
-              <article class="carrossel__item"><img src="assets/images/imovel-2.png" alt="Imóvel 2"></article>
-              <article class="carrossel__item"><img src="assets/images/imovel-3.png" alt="Imóvel 3"></article>
-              <article class="carrossel__item"><img src="assets/images/imovel-4.png" alt="Imóvel 4"></article>
-              <article class="carrossel__item"><img src="assets/images/imovel-5.png" alt="Imóvel 5"></article>
-            </div>
+        <div class="imovel-card">
+          <div class="imovel-card__img">
+            <img src="assets/images/imovel-brigadeiro.png" alt="Imóvel Brigadeiro">
           </div>
-
-          <button class="carrossel__btn carrossel__btn--next" aria-label="Próximo" data-carrossel-next>
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
-          </button>
+          <div class="imovel-card__body">
+            <h3 class="imovel-card__name">Imóvel Brigadeiro</h3>
+            <p class="imovel-card__location">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="16" height="16"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              São Paulo, SP
+            </p>
+            <div class="imovel-card__stats">
+              <div class="imovel-card__stat">
+                <span class="imovel-card__stat-label">Tipo</span>
+                <span class="imovel-card__stat-value">Imóvel Comercial</span>
+              </div>
+              <div class="imovel-card__stat">
+                <span class="imovel-card__stat-label">Blockchain</span>
+                <span class="imovel-card__stat-value">ERC-721</span>
+              </div>
+            </div>
+            <a href="https://app.briquebr.com.br/item/imovel-brigadeiro" class="btn btn-primary imovel-card__cta">
+              Ver detalhes e investir
+            </a>
+          </div>
         </div>
 
-        <div class="carrossel__cta">
-          <a href="#marketplace" class="btn btn-outline">Veja nosso Marketplace</a>
-        </div>
       </div>
     </section>
 
@@ -150,7 +153,7 @@
         <div>
           <h2 class="cta__title">Faça seu cadastro agora!</h2>
           <p class="cta__text">Comece a investir em imóveis de forma simples, segura e acessível.</p>
-          <a href="#" class="btn btn-primary">Cadastrar-se Agora</a>
+          <a href="https://app.briquebr.com.br/auth/signUp" class="btn btn-primary">Cadastrar-se Agora</a>
         </div>
         <div class="cta__photo">
           <img src="assets/images/predios.png" alt="">

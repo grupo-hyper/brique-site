@@ -20,8 +20,8 @@
           <a href="como-funciona.html" class="site-nav__link">Como Funciona</a>
           <a href="quem-somos.html" class="site-nav__link">Quem Somos</a>
           <a href="contato.html" class="site-nav__link">Fale Conosco</a>
-          <a href="#cadastro" class="btn btn-primary">Cadastre-se</a>
-          <a href="#login" class="btn btn-outline-dark">Login</a>
+          <a href="https://app.briquebr.com.br/auth/signUp" class="btn btn-primary">Cadastre-se</a>
+          <a href="https://app.briquebr.com.br/auth/signIn" class="btn btn-outline-dark">Login</a>
         </nav>
       </div>
     </header>

@@ -309,6 +309,79 @@ ul, ol { list-style: none; }
 }
 
 /* ============================================
+   Imóvel Card (substitui carrossel)
+============================================ */
+.imovel-card {
+  display: flex;
+  gap: 40px;
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: var(--shadow-card);
+  overflow: hidden;
+  max-width: 860px;
+  margin: 0 auto;
+}
+.imovel-card__img {
+  flex: 0 0 400px;
+  min-height: 300px;
+  overflow: hidden;
+}
+.imovel-card__img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.imovel-card__body {
+  flex: 1;
+  padding: 36px 36px 36px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.imovel-card__name {
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: var(--color-dark);
+}
+.imovel-card__location {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--color-muted);
+  font-size: 0.95rem;
+}
+.imovel-card__stats {
+  display: flex;
+  gap: 24px;
+  margin-top: 4px;
+}
+.imovel-card__stat {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.imovel-card__stat-label {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: .05em;
+  color: var(--color-muted);
+}
+.imovel-card__stat-value {
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--color-dark);
+}
+.imovel-card__cta {
+  margin-top: auto;
+  align-self: flex-start;
+}
+@media (max-width: 700px) {
+  .imovel-card { flex-direction: column; }
+  .imovel-card__img { flex: 0 0 220px; }
+  .imovel-card__body { padding: 24px; }
+}
+
+/* ============================================
    S3 — Como Funciona
 ============================================ */
 .section-how {
