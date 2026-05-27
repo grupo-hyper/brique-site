@@ -379,32 +379,37 @@ ul, ol { list-style: none; }
 }
 .imovel-card__stats {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 16px 12px;
+  grid-template-columns: repeat(3, auto);
+  gap: 14px 20px;
   padding: 16px;
   background: var(--color-bg-alt);
   border-radius: 10px;
+  width: 100%;
 }
 .imovel-card__stat {
   display: flex;
   flex-direction: column;
   gap: 2px;
+  min-width: 0;
 }
 .imovel-card__stat-label {
-  font-size: 0.7rem;
+  font-size: 0.68rem;
   text-transform: uppercase;
-  letter-spacing: .05em;
+  letter-spacing: .04em;
   color: var(--color-muted);
+  white-space: nowrap;
 }
 .imovel-card__stat-value {
-  font-size: 1rem;
+  font-size: 0.95rem;
   font-weight: 700;
   color: var(--color-dark);
+  white-space: nowrap;
 }
 .imovel-card__desc {
-  font-size: 0.9rem;
+  font-size: 0.88rem;
   color: var(--color-muted);
   line-height: 1.6;
+  overflow-wrap: break-word;
 }
 .imovel-card__cta {
   margin-top: auto;
